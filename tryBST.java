@@ -123,3 +123,25 @@ public class tryBST {
 
         long[] insertTimes = new long[runs];
         long[] deleteTimes = new long[runs];
+      for (int i = 0; i < runs; i++) {
+
+            BST tree = new BST();
+
+            long startInsert = System.currentTimeMillis();
+            tree.buildBalanced(1, max);
+            long endInsert = System.currentTimeMillis();
+
+            insertTimes[i] = endInsert - startInsert;
+
+            if (!tree.isBST()) {
+                System.out.println("Tree is NOT a BST");
+                return;
+            }
+
+            long startDelete = System.currentTimeMillis();
+            tree.removeEvens(max);
+            long endDelete = System.currentTimeMillis();
+
+            deleteTimes[i] = endDelete - startDelete;
+        }
+      
