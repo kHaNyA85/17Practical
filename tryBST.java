@@ -26,4 +26,18 @@ class BST {
       node.right = insert(node.right, data);
     return node;
   }
+  void insert(int data){
+    root = insert(root, data);
+  }
+  boolean isBST(tNode node, long min, long max){
+    if (node == null)
+      return true;
+    if (node.data <= min || node.data >= max)
+      return false;
+    return isBST(node.left, min, node.data) &&
+      isBST(node.right, node.data, max)
+  }
+  boolean isBST(){
+    return isBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+  }
 }
