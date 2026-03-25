@@ -113,3 +113,13 @@ class BST {
   }
 
 }
+
+public class tryBST {
+    public static void main(String[] args) {
+
+        int n = 15;
+        int max = (int)Math.pow(2, n) - 1;
+        int runs = 30;
+
+        long[] insertTimes = new long[runs];
+        long[] deleteTimes = new long[runs];
