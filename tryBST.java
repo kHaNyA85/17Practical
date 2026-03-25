@@ -40,4 +40,20 @@ class BST {
   boolean isBST(){
     return isBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
   }
+  void populateBalanced(int n){
+    root = null;
+    int total = (1 << n) - 1;
+    Queue<int[]> queue = new LinkedList<>();
+    queue.add(new int[]{1, total});
+    while(!queue.isEmpty()){
+      int[] range = queue.poll();
+      int lo = range[0], hi = range[1];
+      if (lo > hi)
+        continue;
+      int mid = (lo + hi) / 2;
+      insert(mid);
+      if (lo > mid)
+        queue.add(new int[]{mid + 1, hi});
+    }
+  }
 }
