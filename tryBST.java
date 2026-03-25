@@ -56,4 +56,9 @@ class BST {
         queue.add(new int[]{mid + 1, hi});
     }
   }
+  tNode findMin(tNode node){
+    while (node.left != null)
+      node = node.left;
+    return node;
+  }
 }
