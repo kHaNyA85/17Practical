@@ -144,4 +144,9 @@ public class tryBST {
 
             deleteTimes[i] = endDelete - startDelete;
         }
+      double avgInsert = average(insertTimes);
+        double avgDelete = average(deleteTimes);
+
+        double stdInsert = stdDev(insertTimes, avgInsert);
+        double stdDelete = stdDev(deleteTimes, avgDelete);
       
